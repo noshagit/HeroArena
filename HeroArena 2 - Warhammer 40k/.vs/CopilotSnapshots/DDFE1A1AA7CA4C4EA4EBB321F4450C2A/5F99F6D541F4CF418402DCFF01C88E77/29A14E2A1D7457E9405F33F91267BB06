@@ -1,0 +1,104 @@
+﻿using System;
+using System.Globalization;
+using System.Windows;
+using System.Windows.Data;
+using System.Windows.Media;
+
+namespace HeroArena.Resources
+{
+    public class BoolToVisibilityConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            bool isTrue = value is bool b && b;
+            
+            if (parameter?.ToString() == "Inverse")
+            {
+                isTrue = !isTrue;
+            }
+
+            return isTrue ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class HealthToColorConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            double percentage = 0;
+            if (value is double dBase) percentage = dBase;
+            else if (value is int iBase) percentage = iBase; // Fallback pour plus de flexibilité
+            else if (value is float fBase) percentage = fBase;
+
+            if (percentage > 60)
+            {
+                if (Application.Current != null && Application.Current.Resources.Contains("HealthGreenBrush"))
+                    return (SolidColorBrush)Application.Current.Resources["HealthGreenBrush"];
+                return new SolidColorBrush(Colors.Green);
+            }
+            if (percentage > 30)
+            {
+                return new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F5A623"));
+            }
+            
+            if (Application.Current != null && Application.Current.Resources.Contains("HealthRedBrush"))
+                return (SolidColorBrush)Application.Current.Resources["HealthRedBrush"];
+            
+            return new SolidColorBrush(Colors.Red);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class NullToVisibilityConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            bool isNull = value == null;
+
+            if (parameter?.ToString() == "Inverse")
+            {
+                isNull = !isNull;
+            }
+
+            return isNull ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class StringToColorBrushConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is string hex && !string.IsNullOrWhiteSpace(hex))
+            {
+                try
+                {
+                    return new SolidColorBrush((Color)ColorConverter.ConvertFromString(hex));
+                }
+                catch
+                {
+                    return Brushes.White;
+                }
+            }
+            return Brushes.White;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

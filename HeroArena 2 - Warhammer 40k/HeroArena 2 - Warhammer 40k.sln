@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37216.2 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeroArena 2 - Warhammer 40k", "HeroArena 2 - Warhammer 40k\HeroArena 2 - Warhammer 40k.csproj", "{DCA0EAF9-7548-4F22-B9D8-5D9070722298}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCA0EAF9-7548-4F22-B9D8-5D9070722298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCA0EAF9-7548-4F22-B9D8-5D9070722298}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCA0EAF9-7548-4F22-B9D8-5D9070722298}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCA0EAF9-7548-4F22-B9D8-5D9070722298}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ECA36C10-1F91-4970-B50E-1E2F6CAA865C}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,20 @@
+﻿HeroArena 2 - Warhammer 40k
+1.0.0.0
+
+winexe
+C#
+.cs
+c:\Users\jeuil\source\repos\HeroArena 2 - Warhammer 40k\HeroArena 2 - Warhammer 40k\obj\Debug\net8.0-windows\
+HeroArena_2___Warhammer_40k
+none
+false
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+c:\Users\jeuil\source\repos\HeroArena 2 - Warhammer 40k\HeroArena 2 - Warhammer 40k\App.xaml
+91485872349
+
+232004974231
+2271617851172
+MainWindow.xaml;Resources\Colors.xaml;Resources\Styles.xaml;Views\CombatView.xaml;Views\HeroView.xaml;Views\LoginView.xaml;Views\MainWindow.xaml;Views\SettingsView.xaml;Views\SpellView.xaml;
+
+True
+

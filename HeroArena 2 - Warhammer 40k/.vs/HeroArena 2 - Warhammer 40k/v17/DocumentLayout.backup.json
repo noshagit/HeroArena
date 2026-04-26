@@ -1,0 +1,68 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jeuil\\source\\repos\\HeroArena 2 - Warhammer 40k\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DCA0EAF9-7548-4F22-B9D8-5D9070722298}|HeroArena 2 - Warhammer 40k\\HeroArena 2 - Warhammer 40k.csproj|c:\\users\\jeuil\\source\\repos\\heroarena 2 - warhammer 40k\\heroarena 2 - warhammer 40k\\views\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DCA0EAF9-7548-4F22-B9D8-5D9070722298}|HeroArena 2 - Warhammer 40k\\HeroArena 2 - Warhammer 40k.csproj|solutionrelative:heroarena 2 - warhammer 40k\\views\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DCA0EAF9-7548-4F22-B9D8-5D9070722298}|HeroArena 2 - Warhammer 40k\\HeroArena 2 - Warhammer 40k.csproj|c:\\users\\jeuil\\source\\repos\\heroarena 2 - warhammer 40k\\heroarena 2 - warhammer 40k\\views\\heroview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DCA0EAF9-7548-4F22-B9D8-5D9070722298}|HeroArena 2 - Warhammer 40k\\HeroArena 2 - Warhammer 40k.csproj|solutionrelative:heroarena 2 - warhammer 40k\\views\\heroview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DCA0EAF9-7548-4F22-B9D8-5D9070722298}|HeroArena 2 - Warhammer 40k\\HeroArena 2 - Warhammer 40k.csproj|c:\\users\\jeuil\\source\\repos\\heroarena 2 - warhammer 40k\\heroarena 2 - warhammer 40k\\views\\combatview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DCA0EAF9-7548-4F22-B9D8-5D9070722298}|HeroArena 2 - Warhammer 40k\\HeroArena 2 - Warhammer 40k.csproj|solutionrelative:heroarena 2 - warhammer 40k\\views\\combatview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginView.xaml",
+              "DocumentMoniker": "C:\\Users\\jeuil\\source\\repos\\HeroArena 2 - Warhammer 40k\\HeroArena 2 - Warhammer 40k\\Views\\LoginView.xaml",
+              "RelativeDocumentMoniker": "HeroArena 2 - Warhammer 40k\\Views\\LoginView.xaml",
+              "ToolTip": "C:\\Users\\jeuil\\source\\repos\\HeroArena 2 - Warhammer 40k\\HeroArena 2 - Warhammer 40k\\Views\\LoginView.xaml",
+              "RelativeToolTip": "HeroArena 2 - Warhammer 40k\\Views\\LoginView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-24T13:28:50.91Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HeroView.xaml",
+              "DocumentMoniker": "C:\\Users\\jeuil\\source\\repos\\HeroArena 2 - Warhammer 40k\\HeroArena 2 - Warhammer 40k\\Views\\HeroView.xaml",
+              "RelativeDocumentMoniker": "HeroArena 2 - Warhammer 40k\\Views\\HeroView.xaml",
+              "ToolTip": "C:\\Users\\jeuil\\source\\repos\\HeroArena 2 - Warhammer 40k\\HeroArena 2 - Warhammer 40k\\Views\\HeroView.xaml",
+              "RelativeToolTip": "HeroArena 2 - Warhammer 40k\\Views\\HeroView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-24T13:28:34.524Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CombatView.xaml",
+              "DocumentMoniker": "C:\\Users\\jeuil\\source\\repos\\HeroArena 2 - Warhammer 40k\\HeroArena 2 - Warhammer 40k\\Views\\CombatView.xaml",
+              "RelativeDocumentMoniker": "HeroArena 2 - Warhammer 40k\\Views\\CombatView.xaml",
+              "ToolTip": "C:\\Users\\jeuil\\source\\repos\\HeroArena 2 - Warhammer 40k\\HeroArena 2 - Warhammer 40k\\Views\\CombatView.xaml",
+              "RelativeToolTip": "HeroArena 2 - Warhammer 40k\\Views\\CombatView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-24T13:26:27.918Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

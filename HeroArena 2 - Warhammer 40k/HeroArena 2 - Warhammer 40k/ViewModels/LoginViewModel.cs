@@ -1,0 +1,146 @@
+﻿using System.Windows;
+using System.Windows.Input;
+using HeroArena.Data;
+using HeroArena.Models;
+using HeroArena.Views;
+
+namespace HeroArena.ViewModels
+{
+    public class LoginViewModel : BaseViewModel
+    {
+        private string _username = string.Empty;
+        private string _password = string.Empty;
+        private string _playerName = string.Empty;
+        private string _errorMessage = string.Empty;
+        private bool _isLoading;
+        private bool _isRegisterMode;
+
+        public string Username
+        {
+            get => _username;
+            set => SetProperty(ref _username, value);
+        }
+
+        public string Password
+        {
+            get => _password;
+            set => SetProperty(ref _password, value);
+        }
+
+        public string PlayerName
+        {
+            get => _playerName;
+            set => SetProperty(ref _playerName, value);
+        }
+
+        public string ErrorMessage
+        {
+            get => _errorMessage;
+            set => SetProperty(ref _errorMessage, value);
+        }
+
+        public bool IsLoading
+        {
+            get => _isLoading;
+            set => SetProperty(ref _isLoading, value);
+        }
+
+        public bool IsRegisterMode
+        {
+            get => _isRegisterMode;
+            set
+            {
+                if (SetProperty(ref _isRegisterMode, value))
+                {
+                    OnPropertyChanged(nameof(LoginButtonText));
+                    OnPropertyChanged(nameof(ToggleText));
+                }
+            }
+        }
+
+        public string LoginButtonText => IsRegisterMode ? "CRÉER LE COMPTE" : "SE CONNECTER";
+        public string ToggleText => IsRegisterMode ? "Déjà un compte ? Se connecter" : "Pas de compte ? S'inscrire";
+
+        public ICommand LoginCommand { get; }
+        public ICommand OpenSettingsCommand { get; }
+        public ICommand ToggleModeCommand { get; }
+
+        public LoginViewModel()
+        {
+            LoginCommand = new AsyncRelayCommand(ExecuteLoginAsync);
+            OpenSettingsCommand = new RelayCommand(ExecuteOpenSettings);
+            ToggleModeCommand = new RelayCommand(ExecuteToggleMode);
+        }
+
+        private async Task ExecuteLoginAsync(object? parameter)
+        {
+            ErrorMessage = string.Empty;
+            IsLoading = true;
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Password))
+                {
+                    ErrorMessage = "Veuillez remplir tous les champs.";
+                    return;
+                }
+
+                if (IsRegisterMode)
+                {
+                    if (string.IsNullOrWhiteSpace(PlayerName))
+                    {
+                        ErrorMessage = "Le nom du joueur est requis.";
+                        return;
+                    }
+
+                    bool registered = await DatabaseService.RegisterAsync(Username, Password, PlayerName);
+                    if (!registered)
+                    {
+                        ErrorMessage = "Nom d'utilisateur déjà pris.";
+                        return;
+                    }
+                }
+
+                var login = await DatabaseService.AuthenticateAsync(Username, Password);
+                if (login != null)
+                {
+                    var player = await DatabaseService.GetPlayerByLoginAsync(login.ID);
+                    AppSettings.Instance.CurrentPlayer = player;
+
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        var mainWindow = new MainWindow();
+                        mainWindow.Show();
+
+                        var loginWindow = Application.Current.Windows.OfType<LoginView>().FirstOrDefault();
+                        loginWindow?.Close();
+                    });
+                }
+                else
+                {
+                    ErrorMessage = "Identifiants incorrects.";
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = $"Erreur de connexion : {ex.Message}";
+            }
+            finally
+            {
+                IsLoading = false;
+            }
+        }
+
+        private void ExecuteOpenSettings(object? parameter)
+        {
+            var settingsView = new SettingsView();
+            settingsView.ShowDialog();
+        }
+
+        private void ExecuteToggleMode(object? parameter)
+        {
+            IsRegisterMode = !IsRegisterMode;
+            ErrorMessage = string.Empty;
+        }
+    }
+}

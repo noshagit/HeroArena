@@ -1,0 +1,74 @@
+﻿using System;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using HeroArena.Data;
+using HeroArena.Models;
+
+namespace HeroArena.ViewModels
+{
+    public class SettingsViewModel : BaseViewModel
+    {
+        private string _connectionString;
+        private string _statusMessage = string.Empty;
+        private bool _isSuccess;
+
+        public string ConnectionString
+        {
+            get => _connectionString;
+            set => SetProperty(ref _connectionString, value);
+        }
+
+        public string StatusMessage
+        {
+            get => _statusMessage;
+            set => SetProperty(ref _statusMessage, value);
+        }
+
+        public bool IsSuccess
+        {
+            get => _isSuccess;
+            set => SetProperty(ref _isSuccess, value);
+        }
+
+        public ICommand TestConnectionCommand { get; }
+        public ICommand SaveCommand { get; }
+        public ICommand SeedDataCommand { get; }
+
+        public SettingsViewModel()
+        {
+            // Initialisation depuis AppSettings
+            _connectionString = AppSettings.Instance.ConnectionString;
+
+            TestConnectionCommand = new AsyncRelayCommand(ExecuteTestConnectionAsync);
+            SaveCommand = new RelayCommand(ExecuteSave);
+            SeedDataCommand = new AsyncRelayCommand(ExecuteSeedDataAsync);
+        }
+
+        private async Task ExecuteTestConnectionAsync(object? parameter)
+        {
+            StatusMessage = "Test en cours...";
+            AppSettings.Instance.ConnectionString = this.ConnectionString;
+            
+            bool ok = await DatabaseService.TestConnectionAsync();
+            IsSuccess = ok;
+            StatusMessage = ok ? "✅ Connexion réussie !" : "❌ Connexion échouée";
+        }
+
+        private void ExecuteSave(object? parameter)
+        {
+            AppSettings.Instance.ConnectionString = this.ConnectionString;
+            IsSuccess = true;
+            StatusMessage = "✅ Paramètres sauvegardés";
+        }
+
+        private async Task ExecuteSeedDataAsync(object? parameter)
+        {
+            StatusMessage = "Initialisation en cours...";
+            AppSettings.Instance.ConnectionString = this.ConnectionString;
+
+            bool ok = await DatabaseService.SeedDataAsync();
+            IsSuccess = ok;
+            StatusMessage = ok ? "✅ Données initialisées avec succès" : "⚠️ Données déjà présentes ou erreur";
+        }
+    }
+}
