@@ -1,5 +1,29 @@
 # HeroArena
 
+[Lien vers le répertoire git](https://github.com/noshagit/HeroArena.git)
+
+Commande pour cloner le projet :
+
+```bash
+git clone https://github.com/noshagit/HeroArena.git
+```
+
+## Sommaire
+
+- [HeroArena](#heroarena)
+  - [Sommaire](#sommaire)
+  - [Prérequis](#prérequis)
+  - [Mise en place de la base de données](#mise-en-place-de-la-base-de-données)
+    - [Installer SQL Server Express 2022](#installer-sql-server-express-2022)
+    - [Installer SSMS 2026](#installer-ssms-2026)
+    - [Créer la base ExerciceHero](#créer-la-base-exercicehero)
+  - [Configurer la connexion dans le jeu](#configurer-la-connexion-dans-le-jeu)
+  - [Utiliser la fenêtre Paramètres BD](#utiliser-la-fenêtre-paramètres-bd)
+  - [Script SQL à exécuter si la base est vide](#script-sql-à-exécuter-si-la-base-est-vide)
+    - [1. Création des tables](#1-création-des-tables)
+    - [2. Insertion des données (sorts, héros, relations)](#2-insertion-des-données-sorts-héros-relations)
+  - [Lancer le jeu](#lancer-le-jeu)
+
 ## Prérequis
 
 Pour exécuter le projet, il faut Visual Studio 2022 avec le workload .NET Desktop Development, le SDK .NET 8, SQL Server Express 2022 et SQL Server Management Studio (SSMS) 2026.
@@ -147,6 +171,6 @@ SELECT ID, Name FROM Spell ORDER BY ID;
 
 ## Lancer le jeu
 
-Ouvre le projet dans Visual Studio 2022 et lance le jeu à partir du petit bouton play.
+Ouvre le projet dans Visual Studio 2022 en demandant à ouvrir un projet et lance le jeu à partir du petit bouton play.
 
 En cas de souci de connexion, vérifie le nom du serveur dans la chaîne ConnectionString, assure-toi que la base ExerciceHero existe bien, puis reteste depuis la fenêtre Paramètres BD.

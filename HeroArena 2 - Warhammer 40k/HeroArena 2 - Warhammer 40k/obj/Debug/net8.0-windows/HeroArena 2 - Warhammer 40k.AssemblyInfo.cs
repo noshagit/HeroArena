@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HeroArena 2 - Warhammer 40k")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9edf98b29c6c9b0fe00a9ce386aeb65e25ab0c14")]
 [assembly: System.Reflection.AssemblyProductAttribute("HeroArena 2 - Warhammer 40k")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HeroArena 2 - Warhammer 40k")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
